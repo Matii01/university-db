@@ -36,6 +36,23 @@ public:
     Sex getSex() const {return sex_;}
     std::string sexToString(const Sex& sex)const {return sex == Sex::Male ? "Male" : "Female";}
     
+    bool operator ==(const Student& b) const
+    {
+        if(b.getFirstName() != firstName_)
+            return false;
+        if(b.getlastName() != lastName_)
+            return false;
+        if(b.getAddress() != address_)
+            return false;
+        if(b.getIndexNumber() != indexNumber_)
+            return false;
+        if(b.getPesel() != pesel_)
+            return false;
+        if(b.getSex() != sex_)
+            return false;
+
+        return true;
+    }
 
     void display()const {
         using std::cout;
