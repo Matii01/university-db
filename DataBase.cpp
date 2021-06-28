@@ -38,6 +38,16 @@ bool DataBase::addStudent(std::string firstName, std::string lastName, std::stri
 }
 
 
+Student* DataBase::searchPesel(std::string pesel){
+    for(auto& it : Students) {
+        if(it.getPesel() == pesel){
+            return &it;
+        }
+    }
+    return nullptr;
+}
+
+
 void DataBase::sortByLastName() {
     std::sort(Students.begin(), Students.end(),
     [](const Student& lhs, const Student& rhs) {
