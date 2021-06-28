@@ -18,7 +18,7 @@ public:
     Student* searchPesel(std::string pesel);
     void sortByPesel();
     void sortByLastName();
-    void remove(std::string indexNumber);
+    void remove(int indexNumber);
     void saveDataBase(std::string path);
     void loadDataBase(std::string path);
     int size() {return Students.size();}

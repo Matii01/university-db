@@ -75,6 +75,14 @@ void DataBase::sortByPesel() {
 }
 
 
+void DataBase::remove(int indexNumber) {
+    Students.erase(
+        std::remove_if(Students.begin(), Students.end(),
+        [&indexNumber] (Student& it) {return it.getIndexNumber() == indexNumber;} ) 
+    ,Students.end());
+}
+
+
 void DataBase::display() {
     for(const auto &item : Students){
         item.display();
