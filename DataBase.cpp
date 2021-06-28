@@ -85,7 +85,6 @@ void DataBase::loadDataBase(std::string path){
     if(file.is_open()){
         std::string name, lastName, addres, pesel, sex, temp;
         int index;
-        int a = 30;
         while (!file.eof())
         {
             std::getline(file, name);   
