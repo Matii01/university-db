@@ -39,7 +39,7 @@ public:
         using std::cout;
         cout.width(10); cout <<std::left << firstName_;
         cout.width(10); cout <<std::left << lastName_;
-        cout.width(10); cout <<std::left << address_;
+        cout.width(15); cout <<std::left << address_;
         cout.width(10); cout <<std::left << indexNumber_;
         cout.width(15); cout <<std::left << pesel_;
         cout.width(10); cout <<std::left << sexToString(sex_);

@@ -1,10 +1,14 @@
 #include <algorithm>
+#include <fstream>
+
 #include "DataBase.hpp"
+
 
 int DataBase::charToInt(char z)
 {
     return (z-48);
 }
+
 
 bool DataBase::validPesel(std::string pesel)
 {
@@ -21,6 +25,7 @@ bool DataBase::validPesel(std::string pesel)
             || (10 - M == charToInt(pesel[10]));
 }
 
+
 bool DataBase::addStudent(std::string firstName, std::string lastName, std::string address,
              int indexNumber, std::string pesel, Sex sex)
 {             
@@ -32,12 +37,14 @@ bool DataBase::addStudent(std::string firstName, std::string lastName, std::stri
     return true;
 }
 
+
 void DataBase::sortByLastName() {
     std::sort(Students.begin(), Students.end(),
     [](const Student& lhs, const Student& rhs) {
         return lhs.getlastName() < rhs.getlastName();
     });
 }
+
 
 void DataBase::sortByPesel() {
     std::sort(Students.begin(), Students.end(),
@@ -52,4 +59,21 @@ void DataBase::display() {
         item.display();
         std::cout << std::endl;
     }
+}
+
+
+void DataBase::saveDataBase(std::string path){
+    std::fstream file;
+    file.open(path, std::ios::out);
+    if(file.is_open()){
+        for(const auto& it : Students) {
+            file << it.getFirstName() <<"\n";
+            file << it.getlastName() <<"\n";
+            file << it.getAddress() <<"\n";
+            file << it.getIndexNumber() <<"\n";
+            file << it.getPesel() <<"\n";
+            file << it.sexToString(it.getSex()) <<"\n";
+        }
+    }
+    file.close();
 }

@@ -19,7 +19,7 @@ public:
     void sortByPesel();
     void sortByLastName();
     void remove(std::string indexNumber);
-    void saveDataBase();
+    void saveDataBase(std::string path);
     void loadDataBase();
     int size() {return Students.size();}
     Student& operator[](int i) {return Students[i];}
