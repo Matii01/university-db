@@ -16,6 +16,7 @@ private:
     int indexNumber_;
     std::string pesel_;
     Sex sex_;
+    const int displayWidth_ = 10;
 
 public:
     Student(std::string firstName, std::string lastName, std::string address,
@@ -34,5 +35,14 @@ public:
     int getIndexNumber() const {return indexNumber_;}
     std::string getPesel() const {return pesel_;}
     Sex getSex() const {return sex_;}
-    
+    std::string sexToString(Sex sex){return sex == Sex::Male ? "Male" : "Female";}
+    void display(){
+        using std::cout;
+        cout.width(displayWidth_); cout << std::left << firstName_;
+        cout.width(displayWidth_); cout << std::left << lastName_;
+        cout.width(displayWidth_); cout << std::left << address_;
+        cout.width(displayWidth_); cout << std::left << indexNumber_;
+        cout.width(displayWidth_); cout << std::left << pesel_;
+        cout.width(displayWidth_); cout << std::left << sexToString(sex_);
+    };
 };
