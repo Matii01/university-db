@@ -108,6 +108,14 @@ void DataBase::saveDataBase(std::string path){
 }
 
 
+Sex DataBase::stringToSex(const std::string& sex) const
+{
+        if(sex == "Male")
+            return Sex::Male;
+        return Sex::Female; 
+}
+
+
 void DataBase::loadDataBase(std::string path){
     std::fstream file;
     file.open(path, std::ios::in);
@@ -123,7 +131,7 @@ void DataBase::loadDataBase(std::string path){
             std::getline(file, pesel); 
             std::getline(file, sex); 
             if(name.size() > 1 ){
-                Students.push_back({ name, lastName, addres, index, pesel, Sex::Female});
+                Students.push_back({ name, lastName, addres, index, pesel, stringToSex(sex)});
             }
         }
     }

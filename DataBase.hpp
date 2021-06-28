@@ -7,6 +7,7 @@ private:
     std::vector<Student>Students;
     bool validPesel(std::string pesel);
     int charToInt(char z);
+    Sex stringToSex(const std::string& sex) const;
 
 public:
 

@@ -35,6 +35,8 @@ public:
     std::string getPesel() const {return pesel_;}
     Sex getSex() const {return sex_;}
     std::string sexToString(const Sex& sex)const {return sex == Sex::Male ? "Male" : "Female";}
+    
+
     void display()const {
         using std::cout;
         cout.width(10); cout <<std::left << firstName_;
