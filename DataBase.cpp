@@ -77,3 +77,27 @@ void DataBase::saveDataBase(std::string path){
     }
     file.close();
 }
+
+
+void DataBase::loadDataBase(std::string path){
+    std::fstream file;
+    file.open(path, std::ios::in);
+    if(file.is_open()){
+        std::string name, lastName, addres, pesel, sex, temp;
+        int index;
+        int a = 30;
+        while (!file.eof())
+        {
+            std::getline(file, name);   
+            std::getline(file, lastName);
+            std::getline(file, addres); 
+            file >> index; file.get(); // file.get() removes '\n'
+            std::getline(file, pesel); 
+            std::getline(file, sex); 
+            if(name.size() > 1 ){
+                Students.push_back({ name, lastName, addres, index, pesel, Sex::Female});
+            }
+        }
+    }
+    file.close();
+}

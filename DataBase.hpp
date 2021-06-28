@@ -20,7 +20,7 @@ public:
     void sortByLastName();
     void remove(std::string indexNumber);
     void saveDataBase(std::string path);
-    void loadDataBase();
+    void loadDataBase(std::string path);
     int size() {return Students.size();}
     Student& operator[](int i) {return Students[i];}
 };
