@@ -34,5 +34,14 @@ public:
     int getIndexNumber() const {return indexNumber_;}
     std::string getPesel() const {return pesel_;}
     Sex getSex() const {return sex_;}
-    
+    std::string sexToString(const Sex& sex)const {return sex == Sex::Male ? "Male" : "Female";}
+    void display()const {
+        using std::cout;
+        cout.width(10); cout <<std::left << firstName_;
+        cout.width(10); cout <<std::left << lastName_;
+        cout.width(10); cout <<std::left << address_;
+        cout.width(10); cout <<std::left << indexNumber_;
+        cout.width(15); cout <<std::left << pesel_;
+        cout.width(10); cout <<std::left << sexToString(sex_);
+    }
 };

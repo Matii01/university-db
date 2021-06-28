@@ -48,13 +48,8 @@ void DataBase::sortByPesel() {
 
 
 void DataBase::display() {
-    using std::cout;
     for(const auto &item : Students){
-        cout.width(10); cout <<std::left <<item.getFirstName();
-        cout.width(10); cout <<std::left <<item.getlastName();
-        cout.width(10); cout <<std::left <<item.getAddress();
-        cout.width(10); cout <<std::left <<item.getIndexNumber();
-        cout.width(10); cout <<std::left <<item.getPesel();
-        cout << std::endl;
+        item.display();
+        std::cout << std::endl;
     }
 }
