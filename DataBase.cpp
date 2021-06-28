@@ -48,6 +48,17 @@ Student* DataBase::searchPesel(std::string pesel){
 }
 
 
+std::vector<const Student *> DataBase::searchLastName(std::string lastName) {
+    std::vector<const Student *> v;
+    for(auto& it : Students){
+        if(it.getlastName() == lastName){
+            v.push_back(&it);
+        }
+    }
+    return v;
+}
+
+
 void DataBase::sortByLastName() {
     std::sort(Students.begin(), Students.end(),
     [](const Student& lhs, const Student& rhs) {

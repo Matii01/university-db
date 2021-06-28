@@ -14,7 +14,7 @@ public:
              int indexNumber, std::string pesel, Sex sex);
 
     void display();
-    std::vector<const Student *> searchLastName();
+    std::vector<const Student *> searchLastName(std::string lastName);
     Student* searchPesel(std::string pesel);
     void sortByPesel();
     void sortByLastName();
