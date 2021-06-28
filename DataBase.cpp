@@ -25,7 +25,7 @@ bool DataBase::addStudent(std::string firstName, std::string lastName, std::stri
              int indexNumber, std::string pesel, Sex sex)
 {             
     if(!validPesel(pesel)){
-        std::cout <<"";
+        std::cout <<"Error incorrecd PESEL";
         return false;
     }
     Students.push_back({firstName, lastName, address, indexNumber, pesel, sex});
@@ -44,4 +44,17 @@ void DataBase::sortByPesel() {
     [](const Student& lhs, const Student& rhs){
         return lhs.getPesel() > rhs.getPesel();
     });
+}
+
+
+void DataBase::display() {
+    using std::cout;
+    for(const auto &item : Students){
+        cout.width(10); cout <<std::left <<item.getFirstName();
+        cout.width(10); cout <<std::left <<item.getlastName();
+        cout.width(10); cout <<std::left <<item.getAddress();
+        cout.width(10); cout <<std::left <<item.getIndexNumber();
+        cout.width(10); cout <<std::left <<item.getPesel();
+        cout << std::endl;
+    }
 }
