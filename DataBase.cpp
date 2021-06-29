@@ -37,24 +37,22 @@ bool DataBase::addStudent(std::string firstName, std::string lastName, std::stri
 }
 
 
-Student* DataBase::searchPesel(std::string pesel){
-    for(auto& it : Students) {
+void DataBase::searchPesel(std::string pesel){
+    for(const auto& it : Students) {
         if(it.getPesel() == pesel){
-            return &it;
+            it.display();
         }
     }
-    return nullptr;
 }
 
 
-std::vector<const Student *> DataBase::searchLastName(std::string lastName) {
-    std::vector<const Student *> v;
-    for(auto& it : Students){
+void DataBase::searchLastName(std::string lastName) {
+    for(const auto& it : Students){
         if(it.getlastName() == lastName){
-            v.push_back(&it);
+            it.display();
+            std::cout <<"\n";
         }
     }
-    return v;
 }
 
 
