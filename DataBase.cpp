@@ -116,6 +116,7 @@ Sex DataBase::stringToSex(const std::string& sex) const
 
 
 bool DataBase::loadDataBase(std::string path){
+    Students.clear();
     std::fstream file;
     file.open(path, std::ios::in);
     if(file.is_open()){
