@@ -30,7 +30,6 @@ bool DataBase::addStudent(std::string firstName, std::string lastName, std::stri
              int indexNumber, std::string pesel, Sex sex)
 {             
     if(!validPesel(pesel)){
-        std::cout <<"Error incorrecd PESEL";
         return false;
     }
     Students.push_back({firstName, lastName, address, indexNumber, pesel, sex});
@@ -116,7 +115,7 @@ Sex DataBase::stringToSex(const std::string& sex) const
 }
 
 
-void DataBase::loadDataBase(std::string path){
+bool DataBase::loadDataBase(std::string path){
     std::fstream file;
     file.open(path, std::ios::in);
     if(file.is_open()){
@@ -135,5 +134,9 @@ void DataBase::loadDataBase(std::string path){
             }
         }
     }
+    else{   
+        return false;
+    }
     file.close();
+    return true;
 }
