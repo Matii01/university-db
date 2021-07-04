@@ -23,5 +23,6 @@ public:
     void saveDataBase(std::string path);
     bool loadDataBase(std::string path);
     int size() {return Students.size();}
+    bool isInDataBase(int index) const;
     Student& operator[](int i) {return Students[i];}
 };

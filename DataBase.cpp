@@ -1,3 +1,4 @@
+#pragma once
 #include <algorithm>
 #include <fstream>
 
@@ -81,7 +82,7 @@ void DataBase::remove(int indexNumber) {
 
 
 void DataBase::display() {
-    for(const auto &item : Students){
+    for(const auto& item : Students){
         item.display();
         std::cout << std::endl;
     }
@@ -138,4 +139,14 @@ bool DataBase::loadDataBase(std::string path){
     }
     file.close();
     return true;
+}
+
+
+bool DataBase::isInDataBase(int index) const {
+    for (const auto& it : Students){
+        if(it.getIndexNumber() == index){
+            return true;
+        }
+    }
+    return false;
 }
