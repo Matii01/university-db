@@ -2,17 +2,6 @@
 #include "menu.hpp"
 
 
-void addToDataBase(DataBase& base){
-    
-
-}
-
-
-void display(DataBase& base){
-
-
-}
-
 
 void help(){
     std::cout << "a - add student        r - remove student\n";
@@ -45,7 +34,7 @@ void addStudentToBase(DataBase& base){
         std::cout <<"index already exists\n";
     }
 
-    if(base.addStudent(name,lastName,addres,index,pesel, stringToSex(gender))){
+    if(base.addStudent(name, lastName, addres, index, pesel, stringToSex(gender))){
         std::cout <<"Added to data data base\n";
     }
     else{
