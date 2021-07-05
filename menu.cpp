@@ -57,7 +57,7 @@ void removeStudentFromBase(DataBase& base){
 
 
 void loadFromDataBase(DataBase& base){
-    if(base.loadDataBase("st.txt")){
+    if(base.loadDataBase("students.txt")){
         std::cout <<"Success\n";
     }
     else{
@@ -101,7 +101,7 @@ void BaseManager(DataBase& base){
             base.display();
             break;
         case 's':
-            base.saveDataBase("st.txt");
+            base.saveDataBase("students.txt");
             break;
         case 'l':
             loadFromDataBase(base);
