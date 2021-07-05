@@ -2,13 +2,13 @@
 #include "menu.hpp"
 
 
-
 void help(){
     std::cout << "a - add student        r - remove student\n";
     std::cout << "d - display base       n - sort by lastame \n";
     std::cout << "p - sort by PESEL      c - search student(PESLE)L\n";
     std::cout << "s - save data base     o - search students(last name)\n";
-    std::cout << "l - load data base     h - help";
+    std::cout << "l - load data base     h - help\n";
+    std::cout << "q - quit ";
 }
 
 
@@ -73,4 +73,64 @@ char getChar(){
         continue;
     }
     return choice;
+}
+
+
+void BaseManager(DataBase& base){
+    std::cout <<"Students data base\n";
+    help();
+    std::cout <<"\n";
+
+    bool continueProgram {true};
+    char choice {};
+    std::string temp;
+
+    do
+    {
+        std::cout<<"Select options: ";
+        choice = getChar();
+        switch (choice)
+        {
+        case 'a':
+            addStudentToBase(base);
+            break;
+        case 'r':
+            removeStudentFromBase(base);
+            break;
+        case 'd':
+            base.display();
+            break;
+        case 's':
+            base.saveDataBase("st.txt");
+            break;
+        case 'l':
+            loadFromDataBase(base);
+            break;
+        case 'n':
+            base.sortByLastName();
+            break;
+        case 'p':
+            base.sortByPesel();
+            break;
+        case 'c':
+            std::cout <<"Pesel: ";
+            std::cin >> temp;
+            base.searchPesel(temp);
+            break;
+        case 'o':
+            std::cout <<"Last name: ";
+            getline(std::cin, temp);
+            base.searchLastName(temp);
+            break;
+        case 'h':
+            help();
+            break;
+        case 'q':
+            continueProgram = false;
+            break;
+        default:
+            break;
+        }
+
+    }while (continueProgram);
 }
